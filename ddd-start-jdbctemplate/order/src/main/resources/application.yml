@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/order?autoReconnect=false&characterEncoding=UTF-8&useUnicode=true&characterEncoding=UTF-8&connectTimeout=5000&socketTimeout=6000&useSSL=false&serverTimezone=Asia/Seoul&rewriteBatchedStatements=true
+    username: root
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 50
+#      connection-test-query: SELECT 1
