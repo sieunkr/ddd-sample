@@ -14,8 +14,7 @@ import java.util.Optional;
 public class OrderDetailService {
 
     private final OrderRepository orderRepository;
-
-    //TODO: 스터디 설명을 위해서 임시로 작성한 코드
+    
     @Transactional
     public OrderDTO getOrderDetail(final String orderNumber) {
 
