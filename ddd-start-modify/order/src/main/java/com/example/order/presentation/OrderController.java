@@ -1,4 +1,4 @@
-package com.example.order.web;
+package com.example.order.presentation;
 
 import com.example.order.application.OrderDTO;
 import com.example.order.application.OrderDetailService;

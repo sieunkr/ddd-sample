@@ -2,7 +2,7 @@ package com.example.order.infrastructure.persistence;
 
 import com.example.order.domain.model.order.Order;
 import com.example.order.domain.model.order.OrderNo;
-import com.example.order.domain.repository.OrderRepository;
+import com.example.order.domain.model.order.OrderRepository;
 import com.example.order.infrastructure.persistence.jpa.OrderJPARepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

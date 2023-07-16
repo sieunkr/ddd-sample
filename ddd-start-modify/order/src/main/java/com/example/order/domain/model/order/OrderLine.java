@@ -1,7 +1,8 @@
 package com.example.order.domain.model.order;
 
 import com.example.order.domain.model.base.ValueObject;
-import com.example.order.domain.model.catalog.ProductId;
+import com.example.order.domain.model.product.Product;
+import com.example.order.domain.model.product.ProductId;
 import com.example.order.domain.model.common.Money;
 
 public class OrderLine implements ValueObject {

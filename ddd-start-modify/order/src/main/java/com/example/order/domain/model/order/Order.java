@@ -3,6 +3,8 @@ package com.example.order.domain.model.order;
 import com.example.order.domain.model.base.AggregateRoot;
 import com.example.order.domain.model.common.Events;
 import com.example.order.domain.model.common.Money;
+import com.example.order.domain.model.product.Product;
+import com.example.order.domain.model.product.ProductId;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,20 +13,16 @@ import java.util.List;
 public class Order implements AggregateRoot {
 
     private OrderNo number;
-
     private long version;
-
     private Orderer orderer;
-
     private List<OrderLine> orderLines;
-
     private Money totalAmounts;
-
     private ShippingInfo shippingInfo;
-
     private OrderState state;
-
     private LocalDateTime orderDate;
+
+
+    //private ProductId productId; //설명을 위해 임시로 넣은 코드.. 실제로는 orderLines 에 상품 정보가 있음
 
     protected Order() {
     }
@@ -96,16 +94,23 @@ public class Order implements AggregateRoot {
         return state;
     }
 
+    /* public 메서드로 setter 를 남용하지 말자
+    public void setShippingInfo(ShippingInfo shippingInfo) {
+    }
+    */
     public void changeShippingInfo(ShippingInfo newShippingInfo) {
         verifyNotYetShipped();
         setShippingInfo(newShippingInfo);
         Events.raise(new ShippingInfoChangedEvent(number, newShippingInfo));
     }
 
+    //주문 취소는 Order 엔티티의 책임
     public void cancel() {
         verifyNotYetShipped();
         this.state = OrderState.CANCELED;
-        Events.raise(new OrderCanceledEvent(number.getNumber()));
+
+
+        //Events.raise(new OrderCanceledEvent(number.getNumber()));
     }
 
     private void verifyNotYetShipped() {
@@ -141,4 +146,20 @@ public class Order implements AggregateRoot {
             throw new OrderAlreadyCanceledException();
         }
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        //TODO:number 식별자를 비교해서 동일한 주문인지 비교할 수 있다.
+
+
+
+        return true;
+    }
+
+    /*
+    public ProductId getProductId() {
+        return productId;
+    }
+
+     */
 }

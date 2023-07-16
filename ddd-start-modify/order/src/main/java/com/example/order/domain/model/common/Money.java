@@ -1,8 +1,10 @@
 package com.example.order.domain.model.common;
 
+import com.example.order.domain.model.base.ValueObject;
+
 import java.util.Objects;
 
-public class Money {
+public class Money implements ValueObject {
 
     private int value;
 

@@ -1,4 +1,4 @@
-package com.example.order.domain.repository;
+package com.example.order.domain.model.order;
 
 import com.example.order.domain.model.order.Order;
 import com.example.order.domain.model.order.OrderNo;

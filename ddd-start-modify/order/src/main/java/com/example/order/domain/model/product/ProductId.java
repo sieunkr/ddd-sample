@@ -1,4 +1,4 @@
-package com.example.order.domain.model.catalog;
+package com.example.order.domain.model.product;
 
 import java.io.Serializable;
 import java.util.Objects;
